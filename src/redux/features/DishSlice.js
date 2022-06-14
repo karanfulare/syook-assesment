@@ -6,7 +6,10 @@ const initialState={
     loading:false,
     dishlist:[],
     error:null,
+    votes:[],
+    sorted:[]
 }
+
 
 export const getdishes = createAsyncThunk('dish/getdishes',()=>{
     return axios 
@@ -18,6 +21,24 @@ export const getdishes = createAsyncThunk('dish/getdishes',()=>{
 const DishSlice = createSlice({
     name:"dish",
     initialState,
+    reducers:{
+      votedish:(state,action)=>{
+        state.votes = state.votes.concat([action.payload]);
+      },
+      sortOnVoteBasis:(state,action)=>{
+        const count = {};
+
+        for (const element of state.votes) {
+          if (count[element]) {
+            count[element] += 1;
+          } else {
+            count[element] = 1;
+          }
+        }
+        state.sorted = state.sorted.concat(count);
+        console.log(count);
+      }
+    },
     extraReducers:builder=>{
         builder.addCase(getdishes.pending,(state)=>{
             state.loading =true
@@ -34,5 +55,8 @@ const DishSlice = createSlice({
         })
     }
 })
+
+export const {votedish} = DishSlice.actions;
+export const {sortOnVoteBasis} = DishSlice.actions;
 
 export default DishSlice.reducer;

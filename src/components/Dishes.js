@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import Navbar from './Navbar';
-import { getdishes } from '../redux/features/DishSlice';
+import { getdishes,votedish,sortOnVoteBasis } from '../redux/features/DishSlice';
 import {useDispatch,useSelector} from 'react-redux'
 
 function Dishes() {
@@ -11,6 +11,12 @@ function Dishes() {
     useEffect(() => {
        dispatch(getdishes());
        },[])
+
+       const voteHandeler = (id,name)=>{
+        //console.log(id)
+        dispatch(votedish(id,name));
+        dispatch(sortOnVoteBasis);
+       }
  
   return (
     <>
@@ -29,7 +35,7 @@ function Dishes() {
                      <div className="card-body">
                        <h5 className="card-title"> {item.dishName}</h5>
                     <p className="card-text"> {item.description}</p>
-                   <button href="#" class="btn btn-primary"> Vote </button>
+                   <button  className="btn btn-primary" onClick={()=>voteHandeler(item.id,item.dishName)}> Vote </button>
            </div>
            </div>
            </div>
