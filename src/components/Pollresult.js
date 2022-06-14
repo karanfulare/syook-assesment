@@ -6,7 +6,7 @@ function Pollresult() {
     <>
     <Navbar/>
     <div className='container'>
-        <h1>Pollresult</h1></div>
+        <h1>Pollresults</h1></div>
         </>
   )
 }

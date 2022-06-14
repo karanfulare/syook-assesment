@@ -10,10 +10,12 @@ import App from './App';
 import Pollresult from './components/Pollresult';
 import Dishes from './components/Dishes';
 import UserLogin from './components/UserLogin';
+import store from './redux/config/store';
+import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <BrowserRouter>
     <Routes>
     <Route path='/' element={<UserLogin/>} />
@@ -22,6 +24,6 @@ root.render(
      <Route path='/dishes' element={<Dishes/>} />
     </Routes>
     </BrowserRouter>
-  </React.StrictMode>
+  </Provider>
 );
 

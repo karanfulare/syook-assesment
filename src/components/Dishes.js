@@ -1,32 +1,32 @@
 import React, { useState,useEffect } from 'react'
 import Navbar from './Navbar';
+import { getdishes } from '../redux/features/DishSlice';
+import {useDispatch,useSelector} from 'react-redux'
 
 function Dishes() {
 
-    const [dish,setDish]=useState([]);
+    const data = useSelector(state => state.dish)
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        const getdata = async () => {
-          const load = await fetch(`https://raw.githubusercontent.com/syook/react-dishpoll/main/db.json`);
-          setDish(load);
-          console.log(dish);
-        }
-        getdata();
-       
-        ;})
-      
-
-    
-    
-    if (!dish) return <div>Loading...</div>;
+       dispatch(getdishes());
+       },[])
+ 
   return (
     <>
     <Navbar/>
+
     <div className='container'>
         <h1>Dishes</h1>
-                   <div>
-                     {dish}
-                   </div>
+                   {data.loading && <div>Loading...</div>}
+      {!data.loading && data.error ? <div>Error: {data.error}</div> : null}
+      {!data.loading && data.dishlist.length ? (
+        <ul>
+          {data.dishlist.map((item)=>{
+            return <div>{item.id} {item.dishName}</div>
+          })}
+        </ul>
+      ) : null}
 
  </div>
  </>
