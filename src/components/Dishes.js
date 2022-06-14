@@ -16,16 +16,25 @@ function Dishes() {
     <>
     <Navbar/>
 
-    <div className='container'>
+    <div className='container' >
         <h1>Dishes</h1>
                    {data.loading && <div>Loading...</div>}
       {!data.loading && data.error ? <div>Error: {data.error}</div> : null}
       {!data.loading && data.dishlist.length ? (
-        <ul>
+        <div style={{display:"flex",flexDirection:"row",flexFlow:"wrap"}}>
           {data.dishlist.map((item)=>{
-            return <div>{item.id} {item.dishName}</div>
+            return  <div key={item.id} > 
+            <div className="card" style={{width:"18rem",margin:"10px"}}>
+                   <img className="card-img-top" src={item.image} alt={item.dishName} />
+                     <div className="card-body">
+                       <h5 className="card-title"> {item.dishName}</h5>
+                    <p className="card-text"> {item.description}</p>
+                   <button href="#" class="btn btn-primary"> Vote </button>
+           </div>
+           </div>
+           </div>
           })}
-        </ul>
+        </div>
       ) : null}
 
  </div>
