@@ -34,7 +34,7 @@ function UserLogin() {
 
 
   return (
-    <div className="container mt-4" id="loginform">
+    <div className="container" id="loginform" >
     <form className="mt-4">
     <input type="text" className="form-control " placeholder="Enter name" onChange={(e)=> nameHandeler(e)}/>
    

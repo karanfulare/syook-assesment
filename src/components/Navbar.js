@@ -11,7 +11,7 @@ function Navbar() {
   }
   return (
     <>
-    <div className="navbar navbar-expand-lg navbar-light bg-light" style={{display:"flex"}}> 
+    <div className="navbar navbar-light" style={{display:"flex",backgroundColor:"ButtonShadow"}}> 
   <Link to="/home"> <h2 className='navbar-brand'> Dish-Poll</h2> </Link>
       <Link to="/dishes" style={{textDecoration:"none"}}> <h3 className="navLink">Dishes </h3></Link>
       

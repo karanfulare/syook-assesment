@@ -13,11 +13,16 @@ code {
 }
 
 #loginform {
-  height:300px;
+  height:max-content;
   width: fit-content;
-  background-color: cadetblue;
+  background-color: rgb(120, 203, 242);
   display: flex;
   align-items: center;
   border: 2px solid pink;
   border-radius: 10px;
+}
+
+button {
+  margin: 10px;
+  box-shadow: 2px 2px black ;
 }
