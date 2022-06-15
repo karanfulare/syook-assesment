@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/karanfulare/syook-assesment/static/css/main.29a74e14.css",
+    "main.js": "/karanfulare/syook-assesment/static/js/main.1630d36b.js",
+    "index.html": "/karanfulare/syook-assesment/index.html",
+    "main.29a74e14.css.map": "/karanfulare/syook-assesment/static/css/main.29a74e14.css.map",
+    "main.1630d36b.js.map": "/karanfulare/syook-assesment/static/js/main.1630d36b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.29a74e14.css",
+    "static/js/main.1630d36b.js"
+  ]
+}
